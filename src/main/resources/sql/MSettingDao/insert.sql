@@ -1,0 +1,39 @@
+INSERT INTO m_setting(
+       open_time
+      ,open_minutes
+      ,close_time
+      ,close_minutes
+      ,alert_open_time
+      ,alert_open_minutes
+      ,alert_close_time
+      ,alert_close_minutes
+      ,business_flag_mon
+      ,business_flag_tue
+      ,business_flag_wed
+      ,business_flag_thu
+      ,business_flag_fri
+      ,business_flag_sat
+      ,business_flag_sun
+      ,regist_date
+      ,regist_user_id
+      ,regist_func_cd
+)values(
+      :openTime
+     ,:openMinutes
+     ,:closeTime
+     ,:closeMinutes
+     ,:alertOpenTime
+     ,:alertOpenMinutes
+     ,:alertCloseTime
+     ,:alertCloseMinutes
+     ,:businessFlagMon
+     ,:businessFlagTue
+     ,:businessFlagWed
+     ,:businessFlagThu
+     ,:businessFlagFri
+     ,:businessFlagSat
+     ,:businessFlagSun
+     ,:registDate
+     ,:registUserId
+     ,:registFuncCd
+)

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/lib/admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css}"
+          href="../../static/lib/admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"
+          href="../../static/css/main.css"/>
+</head>
+<body>
+<div class="container">
+    <div layout:fragment="content"></div>
+</div>
+<script th:src="@{/lib/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js}"
+        src="../../static/lib/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script layout:fragment="script"></script>
+</body>
+</html>

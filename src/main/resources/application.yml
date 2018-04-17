@@ -1,0 +1,41 @@
+server:
+    port: 9000
+management:
+    address: 127.0.0.1
+    port: 9100
+logging:
+    level:
+        application: DEBUG
+        org.springframework.jdbc.core.JdbcTemplate: DEBUG
+spring:
+    datasource:
+        url: jdbc:oracle:thin:ATT_USER/att_user@//192.168.56.101:1521/ORCL
+        driverClassName: oracle.jdbc.driver.OracleDriver
+    messages:
+        encoding: UTF-8
+    thymeleaf:
+        cache: false
+    session:
+        store-type: redis
+    redis:
+        host: localhost
+        password:
+        port: 6379
+    mvc:
+        media-types:
+          csv:  text/csv
+security:
+    user:
+        name: manager
+        password: ziNYWtS58L8A
+    basic:
+        enabled: false
+line:
+    bot:
+        lineAtId: '@yre3479v'
+        channelToken: 1DX/VfQGybmkLY4UFqCJIuE+7Xinf0oE0VLPxweC+amWCrceAgLovodWUb6E1wUpBJAIWgIgBJ310rIBOv9SaqslbBHj9bpoXsSc+9aF9x/adRPaZZO8v1taWhsvAUqH3ZeqWBawHJhXtvgDb3Av+QdB04t89/1O/w1cDnyilFU=
+        channelSecret: 9920a6d632ce9aea6a0a8197fe08ecd3
+    linelogin:
+        channelId: 1569615261
+        channelSecret: 913e8b61eb86a723524e10cc8367cdd4
+        callbackUrl: https://6fcdc04c.ngrok.io/user/auth

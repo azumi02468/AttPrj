@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>エラー</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="container" layout:fragment="content" th:remove="tag">
+    <div class="row" style="margin-top:20px;">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <p>
+                    <span class="text-warning" th:text="${errorMessage} + '[' + ${errorCode} + ']'">エラーが発生しました。</span><br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

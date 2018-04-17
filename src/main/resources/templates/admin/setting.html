@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="adminLayout">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/admin-lte/plugins/timepicker/bootstrap-timepicker.min.css}"
+          href="../../static/lib/admin-lte/plugins/timepicker/bootstrap-timepicker.min.css"/>
+</head>
+<body>
+<div class="ui container" layout:fragment="content" th:remove="tag">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+                <div class="box box-default">
+                    <form id="setting-form" class="form-horizontal"  action="#" th:action="@{/admin/setting}" th:object="${settingForm}" method="post">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                設定
+                            </h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="work-time-start" class="col-md-3 control-label">就業時刻</label>
+                                <div class="col-md-9 row">
+                                    <div class="bootstrap-timepicker col-md-2">
+                                        <input id="work-time-start" type="text" class="form-control timepicker"  placeholder="開始時刻" name="startTime" th:field="*{startTime}" required="required"/>
+                                    </div>
+                                    <label class="col-md-1 control-label">〜</label>
+                                    <div class="bootstrap-timepicker col-md-2">
+                                        <input id="work-time-end" type="text" class="form-control timepicker"  placeholder="終了時刻" name="endTime" th:field="*{endTime}" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">営業曜日</label>
+                                <div class="col-md-9 row">
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-mon">
+                                            <input type="checkbox" id="business-flag-mon" name="businessFlagMon" th:field="*{businessFlagMon}" th:value="1"/>
+                                            月
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-tue">
+                                            <input type="checkbox" id="business-flag-tue" name="businessFlagTue" th:field="*{businessFlagTue}" th:value="1"/>
+                                            火
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-wed">
+                                            <input type="checkbox" id="business-flag-wed" name="businessFlagWed" th:field="*{businessFlagWed}" th:value="1"/>
+                                            水
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-thu">
+                                            <input type="checkbox" id="business-flag-thu" name="businessFlagThu" th:field="*{businessFlagThu}" th:value="1"/>
+                                            木
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-fri">
+                                            <input type="checkbox" id="business-flag-fri" name="businessFlagFri" th:field="*{businessFlagFri}" th:value="1"/>
+                                            金
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-sat">
+                                            <input type="checkbox" id="business-flag-sat" name="businessFlagSat" th:field="*{businessFlagSat}" th:value="1"/>
+                                            土
+                                        </label>
+                                    </div>
+                                    <div class="checkbox col-md-1">
+                                        <label for="business-flag-sun">
+                                            <input type="checkbox" id="business-flag-sun" name="businessFlagSun" th:field="*{businessFlagSun}" th:value="1"/>
+                                            日
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="work-alert-time" class="col-md-3 control-label">退勤アラート時刻</label>
+                                <div class="col-md-9 row">
+                                    <div class="bootstrap-timepicker col-md-2">
+                                        <input id="work-alert-time" type="text" class="form-control timepicker"  placeholder="退勤アラート時刻" name="alertEndTime" th:field="*{alertEndTime}" required="required"/>
+                                    </div>
+                                    <div class="checkbox col-md-10">
+                                        <label for="alert-flag">
+                                            <input type="checkbox" id="alert-flag" name="alertFlag" th:field="*{alertFlag}" th:value="1" />
+                                            出勤打刻漏れ防止アラート機能
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="box-footer with-border">
+                            <div class="pull-left">
+                                <span class="text-success fade-out" th:unless="${#strings.isEmpty(updateSuccessMsg)}" th:text="${updateSuccessMsg}"></span>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" name="action" value="confirm" class="btn btn-primary"
+                                        onclick="confirmBeforeSubmit('setting-form', '保存しますか？')">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    </section>
+    <!-- /.content -->
+</div>
+<div layout:fragment="script" th:remove="tag">
+    <script th:src="@{/js/admin/setting.js}"
+            src="../../static/js/admin/setting.js"></script>
+
+    <script th:src="@{/lib/admin-lte/plugins/timepicker/bootstrap-timepicker.min.js}"
+            src="../../static/lib/admin-lte/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+</div>
+</body>
+</html>

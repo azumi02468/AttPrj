@@ -1,0 +1,75 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+description = """attendance"""
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies {
+    //Spring
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+    compile group: 'org.springframework.session', name: 'spring-session-data-redis'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+
+	// LINE
+    compile group: 'com.linecorp.bot', name: 'line-bot-spring-boot', version:'1.15.0'
+    compile group: 'com.linecorp.bot', name: 'line-bot-servlet', version:'1.15.0'
+    compile group: 'com.linecorp.bot', name: 'line-bot-model', version:'1.15.0'
+    compile group: 'com.linecorp.bot', name: 'line-bot-api-client', version:'1.15.0'
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+    // Apache
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+    compile group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.common', version: '1.0.2'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+
+    compile group: 'ninja.cero.bootiful-sqltemplate', name: 'bootiful-sqltemplate-core', version:'1.0.3'
+
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version:'2.1.0.RELEASE'
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '2.1.2.RELEASE'
+
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '1.1.2'
+    compile group: 'com.squareup.retrofit2', name: 'retrofit', version:'2.0.0'
+    compile group: 'com.squareup.retrofit2', name: 'converter-gson', version:'2.0.0'
+    compile group: 'com.squareup.okhttp3', name: 'logging-interceptor', version:'3.2.0'
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.6.2'
+    compile group: 'com.auth0', name: 'java-jwt', version:'3.2.0'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-csv'
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+}
+

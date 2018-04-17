@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="jp"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>ページが見つかりません。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="container" layout:fragment="content" th:remove="tag">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h3>Not Found</h3>
+            <h4>ページが見つかりません。</h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>

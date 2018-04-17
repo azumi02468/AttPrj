@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../static/css/line-login.css" th:href="@{/css/line-login.css}" />
+    <title>勤怠管理システム 新規ログイン</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+     		<div class="area row">
+     		 <div class="col-md-1"></div>
+     		 <div class="col-md-10">
+     		 <h4 class="text-center area-margin">勤怠管理システム<br />新規ログイン</h4>
+            <form method="post" action="#" th:action="@{/user/linelogin}" th:object="${loginForm}" role="login">
+            <div class="form-group">
+            <input class="form-control" type="text" name="mail" value="" placeholder="E-mailアドレス" th:field="*{mail}"></input>
+            <span th:if="${#fields.hasErrors('*{mail}')}" th:errors="*{mail}" class="text-danger help-block"></span>
+            <span th:if="${errorMessage}" th:text="${errorMessage}" class="text-danger help-block"></span>
+            </div>
+            <div class="form-group">
+	            <div id="web-login-button" class="center-block area-margin">
+	              <!--  <a class="center-block" href="/linelogin"></a>  -->
+	              <button class="line-login" type="submit"></button>
+	            </div>
+            </div>
+            </form>
+            </div>
+            <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>勤怠管理システム</title>
+    <link href="../../static/lib/admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css"
+          th:href="@{/lib/admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet" />
+
+    <link href="../../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+<div class="container">
+
+    <form class="form-signin" action="#" method="post" th:action="@{/admin/login}" role="form">
+        <h2 class="form-signin-heading text-center">勤怠管理システム</h2>
+        <div class="form-group">
+            <label for="inputUserId" class="sr-only">ユーザID</label>
+            <input type="text" id="inputUserId" name="userId" class="form-control" placeholder="ユーザID" required="required" autofocus="autofocus" />
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">パスワード</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="パスワード" required="required" />
+        </div>
+        <div class="alert alert-warning" role="alert" th:if="${loginFailedErrorMsg}">
+            <span th:text="${loginFailedErrorMsg}"></span>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+    </form>
+
+</div>
+
+<!-- jQuery 3 -->
+<script src="../../static/lib/admin-lte/bower_components/jquery/dist/jquery.min.js"
+        th:src="@{/lib/admin-lte/bower_components/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap -->
+<script src="../../static/lib/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js"
+        th:src="@{/lib/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+</body>
+</html>
